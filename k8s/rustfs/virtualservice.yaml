@@ -1,0 +1,17 @@
+apiVersion: gateway.solo.io/v1
+kind: VirtualService
+metadata:
+  name: rustfs
+  namespace: gloo-system
+spec:
+  virtualHost:
+    domains:
+      - rustfs.test.local
+    routes:
+      - matchers:
+          - prefix: /
+        routeAction:
+          single:
+            upstream:
+              name: rustfs-9000
+              namespace: rustfs
