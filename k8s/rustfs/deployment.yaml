@@ -17,19 +17,18 @@ spec:
         - name: rustfs
           image: rustfs/rustfs:latest
           imagePullPolicy: IfNotPresent
-
           ports:
-            - containerPort: 9000
-
+            - name: http
+              containerPort: 9000
           env:
             - name: RUSTFS_ADDRESS
               value: "0.0.0.0:9000"
-
-          # Optional but recommended
-          resources:
-            requests:
-              cpu: "100m"
-              memory: "128Mi"
-            limits:
-              cpu: "500m"
-              memory: "512Mi"
+            - name: RUSTFS_DATA_DIR
+              value: "/data"
+          volumeMounts:
+            - name: data
+              mountPath: /data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: rustfs-data
