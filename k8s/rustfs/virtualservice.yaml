@@ -14,4 +14,4 @@ spec:
           single:
             upstream:
               name: rustfs-rustfs-9000
-              namespace: rustfs
+              namespace: gloo-system
