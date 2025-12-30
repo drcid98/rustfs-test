@@ -13,5 +13,5 @@ spec:
         routeAction:
           single:
             upstream:
-              name: rustfs-rustfs-9000
+              name: rustfs-rustfs-9001
               namespace: gloo-system

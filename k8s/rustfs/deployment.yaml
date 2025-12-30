@@ -18,13 +18,17 @@ spec:
           image: rustfs/rustfs:latest
           imagePullPolicy: IfNotPresent
           ports:
-            - name: http
+            - name: s3
               containerPort: 9000
+            - name: console
+              containerPort: 9001
           env:
             - name: RUSTFS_ADDRESS
               value: "0.0.0.0:9000"
             - name: RUSTFS_DATA_DIR
               value: "/data"
+            - name: RUSTFS_CONSOLE_ADDRESS
+              value: "0.0.0.0:9001"
           volumeMounts:
             - name: data
               mountPath: /data
