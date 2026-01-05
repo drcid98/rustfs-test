@@ -23,12 +23,12 @@ spec:
             - name: console
               containerPort: 9001
           env:
-            - name: RUSTFS_ADDRESS
-              value: "0.0.0.0:9003"
+            # - name: RUSTFS_ADDRESS
+            #   value: "0.0.0.0:9000"
             - name: RUSTFS_DATA_DIR
               value: "/data"
-            - name: RUSTFS_CONSOLE_ADDRESS
-              value: "0.0.0.0:9001"
+            # - name: RUSTFS_CONSOLE_ADDRESS
+            #   value: "0.0.0.0:9001"
           volumeMounts:
             - name: data
               mountPath: /data
